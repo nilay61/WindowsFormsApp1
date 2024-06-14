@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AJAX İstemci</title>
+<script>
+function getData() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById("response").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.open("GET", "sunucu.php", true);
+    xhr.send();
+}
+</script>
+</head>
+<body>
+    <button onclick="getData()">Veri Al</button>
+    <div id="response"></div>
+</body>
+</html>
+
